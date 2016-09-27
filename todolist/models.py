@@ -5,11 +5,17 @@ class Project(models.Model):
   path_to_folder = models.CharField(max_length=200)
   date_created = models.DateTimeField('date created')
 
+  def __str__(self):
+    return self.title
+
 class Detail(models.Model):
   project = models.ForeignKey(Project, on_delete=models.CASCADE)
   title = models.CharField(max_length=200)
-  priority = models.IntegerField(max_length=10, default=0)
+  priority = models.IntegerField(default=10)
   date_created = models.DateTimeField('date created')
+
+  def __str__(self):
+    return self.title
 
 class Programm(models.Model):
   detail = models.ForeignKey(Detail, on_delete=models.CASCADE)
@@ -17,3 +23,6 @@ class Programm(models.Model):
   type = models.CharField(max_length=100)
   path_to_folder = models.CharField(max_length=300)
   date_created = models.DateTimeField('date created')
+
+  def __str__(self):
+    return self.title

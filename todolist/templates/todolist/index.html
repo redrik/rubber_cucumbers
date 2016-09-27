@@ -1,0 +1,13 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'todolist/style.css' %}" />
+
+{% if project_list %}
+    <ul>
+    {% for project in project_list %}
+        <li><a href="{% url 'todolist:detail' project.id  %}">{{ project.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No project are available.</p>
+{% endif %}

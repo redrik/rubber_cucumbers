@@ -1,0 +1,9 @@
+{% if detail_list %}
+    <ul>
+    {% for detail in detail_list %}
+        <li><a href>{{ detail.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No project are available.</p>
+{% endif %}

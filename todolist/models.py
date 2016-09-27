@@ -8,7 +8,7 @@ class Project(models.Model):
   def __str__(self):
     return self.title
 
-class Detail(models.Model):
+class Part(models.Model):
   project = models.ForeignKey(Project, on_delete=models.CASCADE)
   title = models.CharField(max_length=200)
   priority = models.IntegerField(default=10)
@@ -18,7 +18,7 @@ class Detail(models.Model):
     return self.title
 
 class Programm(models.Model):
-  detail = models.ForeignKey(Detail, on_delete=models.CASCADE)
+  detail = models.ForeignKey(Part, on_delete=models.CASCADE)
   title = models.CharField(max_length=200)
   type = models.CharField(max_length=100)
   path_to_folder = models.CharField(max_length=300)

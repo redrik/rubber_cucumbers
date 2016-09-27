@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 from django.db.models import F
 
-from .models import Project, Detail, Programm
+from .models import Project, Part, Programm
 
 
 class IndexView(generic.ListView):
@@ -14,9 +14,10 @@ class IndexView(generic.ListView):
   def get_queryset(self):
     return Project.objects.order_by('-date_created')[:5]
 
-class DetailView(generic.ListView):
-  context_object_name = 'detail_list'
-  template_name = 'todolist/details.html'
+class PartView(generic.ListView):
+  context_object_name = 'part_list'
+  template_name = 'todolist/parts.html'
 
   def get_queryset(self):
-    return Detail.objects.order_by('-date_created')
+
+    return Part.objects.filter(project_id=1)

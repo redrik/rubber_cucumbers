@@ -1,3 +1,10 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'todolist/style.css' %}" />
+
+<h1>Название проекта: {{project.title}}</h1>
+<h2>Название детали: {{part.title}}</h2>
+<h3>Список программ для этой детали:</h3>
+
 {% if programm_list %}
     <ul>
     {% for programm in programm_list %}

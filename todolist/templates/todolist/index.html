@@ -1,6 +1,9 @@
 {% load staticfiles %}
-
 <link rel="stylesheet" type="text/css" href="{% static 'todolist/style.css' %}" />
+<link rel="stylesheet" media="screen" href="{% static 'todolist/css/bootstrap.min.css' %}">
+<script src="{% static 'todolist/js/bootstrap.min.js' %}"></script>
+
+<h1>Список проектов</h1>
 
 {% if project_list %}
     <ul>

@@ -12,6 +12,7 @@ class Part(models.Model):
   project = models.ForeignKey(Project, on_delete=models.CASCADE)
   title = models.CharField(max_length=200)
   priority = models.IntegerField(default=10)
+  status = models.CharField(max_length=20, default='Не активен')
   date_created = models.DateTimeField('date created')
 
   def __str__(self):

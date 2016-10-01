@@ -1,9 +1,9 @@
 {% if part_list %}
     <ul>
     {% for part in part_list %}
-        <li><a href>{{ part.title }}</a></li>
+        <li><a href="{% url 'todolist:programm_of_part' part.id  %}">{{ part.title }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
-    <p>No project are available.</p>
+    <p>Деталей не найдено.</p>
 {% endif %}

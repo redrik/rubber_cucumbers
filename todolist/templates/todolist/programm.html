@@ -1,0 +1,9 @@
+{% if programm_list %}
+    <ul>
+    {% for programm in programm_list %}
+        <li><a href="/">{{ programm.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Программ не найдено.</p>
+{% endif %}

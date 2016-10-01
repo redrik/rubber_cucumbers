@@ -16,3 +16,7 @@ class IndexView(generic.ListView):
 def part_of_project(request, project_id):
   part_list = Part.objects.filter(project=project_id)
   return render(request, 'todolist/part.html', {'part_list': part_list})
+
+def programm_of_part(request, part_id):
+  programm_list = Programm.objects.filter(part=part_id)
+  return render(request, 'todolist/programm.html', {'programm_list': programm_list})

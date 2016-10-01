@@ -18,7 +18,7 @@ class Part(models.Model):
     return self.title
 
 class Programm(models.Model):
-  detail = models.ForeignKey(Part, on_delete=models.CASCADE)
+  part = models.ForeignKey(Part, on_delete=models.CASCADE)
   title = models.CharField(max_length=200)
   type = models.CharField(max_length=100)
   path_to_folder = models.CharField(max_length=300)

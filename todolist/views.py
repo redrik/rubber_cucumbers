@@ -6,7 +6,6 @@ from django.db.models import F
 
 from .models import Project, Part, Programm
 
-
 class IndexView(generic.ListView):
   template_name = 'todolist/index.html'
   context_object_name = 'project_list'
@@ -14,10 +13,6 @@ class IndexView(generic.ListView):
   def get_queryset(self):
     return Project.objects.order_by('-date_created')[:5]
 
-class PartView(generic.ListView):
-  context_object_name = 'part_list'
-  template_name = 'todolist/parts.html'
-
-  def get_queryset(self):
-
-    return Part.objects.filter(project_id=1)
+def part_of_project(request, project_id):
+  part_list = Part.objects.filter(project=project_id)
+  return render(request, 'todolist/part.html', {'part_list': part_list})

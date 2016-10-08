@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}Rubber cucumbers{% endblock %}</title>
+    {% load staticfiles %}
+      <link rel="stylesheet" type="text/css" href="{% static 'todolist/style.css' %}" />
+      <link rel="stylesheet" media="screen" href="{% static 'todolist/css/bootstrap.min.css' %}">
+      <script src="{% static 'todolist/js/bootstrap.min.js' %}"></script>
+  </head>
+  <body>
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>
+
+

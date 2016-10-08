@@ -1,16 +1,30 @@
-{% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{% static 'todolist/style.css' %}" />
-<link rel="stylesheet" media="screen" href="{% static 'todolist/css/bootstrap.min.css' %}">
-<script src="{% static 'todolist/js/bootstrap.min.js' %}"></script>
+{% extends "base.html" %}
 
-<h1>Список проектов</h1>
-
-{% if project_list %}
-    <ul>
-    {% for project in project_list %}
-        <li><a href="{% url 'todolist:part_of_project' project.id  %}">{{ project.title }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>Проектов не найдено.</p>
-{% endif %}
+{% block content %}
+  <div class="container theme-showcase" role="main">
+    <h1>Список проектов</h1> 
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Название проекта</th>
+          <th>Статус производства</th>
+      </thead>
+      {% if project_list %}
+        <tbody>
+        {% for project in project_list %}
+          <tr>
+            <td><a href="{% url 'todolist:part_of_project' project.id  %}">{{ project.title }}</a></td>
+            <td>
+              <span class="label label-default">{{project.id}}</span>
+              <span class="label label-info">{{project.id}}</span>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      {% else %}
+        <p>Проектов не найдено.</p>
+      {% endif %}
+    </table>
+  </div>
+{% endblock content %}
